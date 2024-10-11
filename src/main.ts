@@ -49,7 +49,7 @@ function run(cmd: string, args: any[]): Promise<any> {
 	});
 }
 
-function runSync(cmd: string, args: any[]): Status {
+function runSync(cmd: string, args: any[]): any {
 	if (process.platform != "win32") {
 		throw new Error("Only Windows is supported");
 	}
@@ -107,8 +107,7 @@ export default {
 		return run(LIB_EXE, ['--path', path]);
 	},
 
-	getAllValuesSync: function (path: string, key: string) {
+	getAllValuesSync: function (path: string): any {
 		return runSync(LIB_EXE, ['--path', path]);
 	}
-
 }
