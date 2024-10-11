@@ -1,4 +1,4 @@
-# Read Windows Registry without node-gyp 
+# Read Windows Registry without node-gyp and regedit
 
 Installation via
 ```sh
