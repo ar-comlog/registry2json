@@ -94,7 +94,7 @@ exports.default = {
     getAllValues: function (path) {
         return run(LIB_EXE, ['--path', path]);
     },
-    getAllValuesSync: function (path, key) {
+    getAllValuesSync: function (path) {
         return runSync(LIB_EXE, ['--path', path]);
     }
 };
