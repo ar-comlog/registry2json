@@ -1,0 +1,28 @@
+{
+  "name": "registry2json",
+  "version": "1.0.0",
+  "description": "Registry handler for Windows without node-gyp",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ar-comlog/registry2json.git"
+  },
+  "keywords": [
+    "windows",
+    "registry",
+    "json"
+  ],
+  "author": "COMLOG GmbH",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ar-comlog/registry2json/issues"
+  },
+  "homepage": "https://github.com/ar-comlog/registry2json#readme",
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "typescript": "^5.4.5"
+  }
+}
