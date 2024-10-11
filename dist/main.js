@@ -53,13 +53,6 @@ function runSync(cmd, args) {
     const proc = (0, child_process_1.spawnSync)(cmd, args, {
         encoding: 'utf-8' // Stellt sicher, dass die Ausgabe als String zurückkommt
     });
-    // Ausgabe des Ergebnisses
-    //if (proc.stdout) {
-    //	console.log('Ausgabe (stdout):\n', proc.stdout);
-    //}
-    //if (proc.stderr) {
-    //	console.error('Fehler (stderr):\n', proc.stderr);
-    //}
     if (proc.status == 0) {
         let responseStatus = JSON.parse(proc.stdout);
         if (responseStatus.Status == "error") {
@@ -77,13 +70,8 @@ function runSync(cmd, args) {
         else
             throw proc.error;
     }
-    // Überprüfe den Rückgabecode des Prozesses
-    //if (proc.error) {
-    //	console.error('Fehler beim Ausführen des Befehls:', proc.error.message);
-    //} else {
-    //	console.log('Prozess erfolgreich beendet, Exit-Code:', proc.status);
-    //}
 }
+// noinspection JSUnusedGlobalSymbols
 exports.default = {
     getValue: function (path, key) {
         return run(LIB_EXE, ['--path', path, '--key', key]);

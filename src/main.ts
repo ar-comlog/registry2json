@@ -3,12 +3,6 @@ import path from 'path';
 
 const LIB_EXE = path.dirname(__filename) + path.sep + "lib" + path.sep + "registry2json.exe";
 
-type Status = {
-	Status: string,
-	Error?: string,
-	Data?: any
-}
-
 function run(cmd: string, args: any[]): Promise<any> {
 	return new Promise(function (resolve, reject) {
 		if (process.platform != "win32") {
@@ -60,15 +54,6 @@ function runSync(cmd: string, args: any[]): any {
 		encoding: 'utf-8' // Stellt sicher, dass die Ausgabe als String zurückkommt
 	});
 
-	// Ausgabe des Ergebnisses
-	//if (proc.stdout) {
-	//	console.log('Ausgabe (stdout):\n', proc.stdout);
-	//}
-
-	//if (proc.stderr) {
-	//	console.error('Fehler (stderr):\n', proc.stderr);
-	//}
-
 	if (proc.status == 0) {
 		let responseStatus = JSON.parse(proc.stdout);
 		if (responseStatus.Status == "error") {
@@ -85,15 +70,9 @@ function runSync(cmd: string, args: any[]): any {
 		}
 		else throw proc.error
 	}
-
-	// Überprüfe den Rückgabecode des Prozesses
-	//if (proc.error) {
-	//	console.error('Fehler beim Ausführen des Befehls:', proc.error.message);
-	//} else {
-	//	console.log('Prozess erfolgreich beendet, Exit-Code:', proc.status);
-	//}
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default {
 	getValue: function (path: string, key: string): Promise<any> {
 		return run(LIB_EXE, ['--path', path, '--key', key]);
